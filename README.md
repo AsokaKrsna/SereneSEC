@@ -1,7 +1,7 @@
 # SereneSec
 
 <p align="center">
-  <img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" width="120" alt="SereneSec Logo">
+  <img src="App_Icon.png" width="120" alt="SereneSec Logo">
 </p>
 
 <p align="center">
