@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SereneSec</string>
+    <string name="app_description">Distraction-free cybersecurity reading</string>
+    
+    <!-- Navigation -->
+    <string name="nav_inbox">Inbox</string>
+    <string name="nav_sources">Sources</string>
+    <string name="nav_settings">Settings</string>
+    
+    <!-- Inbox -->
+    <string name="inbox_all_caught_up">All Caught Up</string>
+    <string name="inbox_all_caught_up_description">You\'ve read everything. Take a break.</string>
+    <string name="inbox_pull_to_refresh">Pull to refresh</string>
+    <string name="inbox_refreshing">Refreshing feeds…</string>
+    <string name="inbox_articles_count">%1$d unread articles</string>
+    
+    <!-- Filters -->
+    <string name="filter_all">All</string>
+    <string name="filter_news">News</string>
+    <string name="filter_tools">Tools</string>
+    <string name="filter_cves">CVEs</string>
+    <string name="filter_research">Research</string>
+    
+    <!-- Article States -->
+    <string name="article_mark_read">Mark as read</string>
+    <string name="article_mark_unread">Mark as unread</string>
+    <string name="article_archive">Archive</string>
+    <string name="article_restore">Restore</string>
+    
+    <!-- Reader -->
+    <string name="reader_focus_mode">Focus Mode</string>
+    <string name="reader_respectful_mode">Respectful Mode</string>
+    <string name="reader_open_external">Open in browser</string>
+    <string name="reader_external_link_title">External Link</string>
+    <string name="reader_external_link_message">This link will open in your default browser. Proceed?</string>
+    <string name="reader_cancel">Cancel</string>
+    <string name="reader_open">Open</string>
+    <string name="reader_loading">Loading article…</string>
+    <string name="reader_error">Failed to load article</string>
+    
+    <!-- Sources -->
+    <string name="sources_title">Content Sources</string>
+    <string name="sources_built_in">Built-in Sources</string>
+    <string name="sources_custom">Custom Sources</string>
+    <string name="sources_add_custom">Add custom source</string>
+    <string name="sources_enabled">Enabled</string>
+    <string name="sources_disabled">Disabled</string>
+    <string name="sources_last_sync">Last sync: %1$s</string>
+    <string name="sources_never_synced">Never synced</string>
+    
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_sync_frequency">Sync Frequency</string>
+    <string name="settings_sync_2h">Every 2 hours</string>
+    <string name="settings_sync_6h">Every 6 hours</string>
+    <string name="settings_sync_12h">Every 12 hours</string>
+    <string name="settings_sync_manual">Manual only</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_system">System default</string>
+    <string name="settings_about">About</string>
+    <string name="settings_version">Version %1$s</string>
+    <string name="settings_privacy_policy">Privacy Notice</string>
+    <string name="settings_open_source">Open Source Licenses</string>
+    
+    <!-- Errors -->
+    <string name="error_no_connection">No internet connection</string>
+    <string name="error_fetch_failed">Failed to fetch feeds</string>
+    <string name="error_invalid_url">Invalid URL</string>
+    <string name="error_generic">Something went wrong</string>
+    
+    <!-- Share -->
+    <string name="share_added">Article added to inbox</string>
+    <string name="share_already_exists">Article already in inbox</string>
+    <string name="share_invalid_url">Could not add this link</string>
+    
+    <!-- Legal -->
+    <string name="legal_disclaimer">SereneSec displays content from third-party sources. All content remains property of original creators. This application does not host, redistribute, or modify content for distribution.</string>
+    
+    <!-- Widget -->
+    <string name="widget_name">Security News</string>
+    <string name="widget_description">Display latest security news on your home screen</string>
+    
+    <!-- Floating Window -->
+    <string name="floating_window">Floating Window</string>
+    <string name="floating_window_description">Read articles in a floating window over other apps</string>
+    <string name="floating_permission_required">Overlay Permission Required</string>
+    <string name="floating_permission_message">To use floating window, please grant the \"Display over other apps\" permission.</string>
+    <string name="grant_permission">Grant Permission</string>
+</resources>

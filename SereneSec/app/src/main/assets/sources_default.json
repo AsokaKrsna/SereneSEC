@@ -1,0 +1,245 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "krebs-security",
+      "name": "Krebs on Security",
+      "url": "https://krebsonsecurity.com/feed/",
+      "type": "RSS",
+      "category": "NEWS",
+      "description": "In-depth security news by Brian Krebs"
+    },
+    {
+      "id": "schneier-blog",
+      "name": "Schneier on Security",
+      "url": "https://www.schneier.com/feed/atom/",
+      "type": "RSS",
+      "category": "NEWS",
+      "description": "Bruce Schneier's security blog"
+    },
+    {
+      "id": "troy-hunt",
+      "name": "Troy Hunt",
+      "url": "https://www.troyhunt.com/rss/",
+      "type": "RSS",
+      "category": "NEWS",
+      "description": "Web security and data breaches"
+    },
+    {
+      "id": "bleeping-computer",
+      "name": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/feed/",
+      "type": "RSS",
+      "category": "NEWS",
+      "description": "Technology news and security"
+    },
+    {
+      "id": "the-hacker-news",
+      "name": "The Hacker News",
+      "url": "https://feeds.feedburner.com/TheHackersNews",
+      "type": "RSS",
+      "category": "NEWS",
+      "description": "Cybersecurity news platform"
+    },
+    {
+      "id": "dark-reading",
+      "name": "Dark Reading",
+      "url": "https://www.darkreading.com/rss.xml",
+      "type": "RSS",
+      "category": "NEWS",
+      "description": "Enterprise security news"
+    },
+    {
+      "id": "threatpost",
+      "name": "Threatpost",
+      "url": "https://threatpost.com/feed/",
+      "type": "RSS",
+      "category": "NEWS",
+      "description": "Security news and analysis"
+    },
+    {
+      "id": "google-project-zero",
+      "name": "Google Project Zero",
+      "url": "https://googleprojectzero.blogspot.com/feeds/posts/default",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Zero-day vulnerability research"
+    },
+    {
+      "id": "google-security-blog",
+      "name": "Google Security Blog",
+      "url": "https://security.googleblog.com/feeds/posts/default",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Google's security team updates"
+    },
+    {
+      "id": "microsoft-security",
+      "name": "Microsoft Security Blog",
+      "url": "https://www.microsoft.com/en-us/security/blog/feed/",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Microsoft security research"
+    },
+    {
+      "id": "talos-intelligence",
+      "name": "Cisco Talos",
+      "url": "https://blog.talosintelligence.com/feeds/posts/default",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Threat intelligence and research"
+    },
+    {
+      "id": "mandiant",
+      "name": "Mandiant",
+      "url": "https://www.mandiant.com/resources/blog/rss.xml",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Threat research and incident response"
+    },
+    {
+      "id": "crowdstrike",
+      "name": "CrowdStrike Blog",
+      "url": "https://www.crowdstrike.com/blog/feed/",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Adversary and threat research"
+    },
+    {
+      "id": "unit42",
+      "name": "Palo Alto Unit 42",
+      "url": "https://unit42.paloaltonetworks.com/feed/",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Threat intelligence by Unit 42"
+    },
+    {
+      "id": "sentinelone-labs",
+      "name": "SentinelOne Labs",
+      "url": "https://www.sentinelone.com/labs/feed/",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Malware and threat research"
+    },
+    {
+      "id": "cisa-alerts",
+      "name": "CISA Alerts",
+      "url": "https://www.cisa.gov/uscert/ncas/alerts.xml",
+      "type": "RSS",
+      "category": "CVE",
+      "description": "US-CERT security alerts"
+    },
+    {
+      "id": "cisa-advisories",
+      "name": "CISA ICS Advisories",
+      "url": "https://www.cisa.gov/uscert/ics/advisories/advisories.xml",
+      "type": "RSS",
+      "category": "CVE",
+      "description": "Industrial control system advisories"
+    },
+    {
+      "id": "nist-nvd",
+      "name": "NIST NVD Recent",
+      "url": "https://nvd.nist.gov/feeds/xml/cve/misc/nvd-rss.xml",
+      "type": "RSS",
+      "category": "CVE",
+      "description": "Recent CVE entries from NIST"
+    },
+    {
+      "id": "ncsc-uk",
+      "name": "NCSC UK",
+      "url": "https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml",
+      "type": "RSS",
+      "category": "NEWS",
+      "description": "UK National Cyber Security Centre"
+    },
+    {
+      "id": "portswigger-research",
+      "name": "PortSwigger Research",
+      "url": "https://portswigger.net/research/rss",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Web security research"
+    },
+    {
+      "id": "malwarebytes-labs",
+      "name": "Malwarebytes Labs",
+      "url": "https://www.malwarebytes.com/blog/feed/index.xml",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Threat analysis and malware research"
+    },
+    {
+      "id": "securelist",
+      "name": "Securelist (Kaspersky)",
+      "url": "https://securelist.com/feed/",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Kaspersky's threat research"
+    },
+    {
+      "id": "github-nuclei",
+      "name": "Nuclei Releases",
+      "url": "https://github.com/projectdiscovery/nuclei",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Fast vulnerability scanner"
+    },
+    {
+      "id": "github-nmap",
+      "name": "Nmap Releases",
+      "url": "https://github.com/nmap/nmap",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Network mapper and scanner"
+    },
+    {
+      "id": "github-burp-extensions",
+      "name": "Burp Extensions",
+      "url": "https://github.com/PortSwigger/burp-extensions-montoya-api",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Burp Suite extension API"
+    },
+    {
+      "id": "github-impacket",
+      "name": "Impacket Releases",
+      "url": "https://github.com/fortra/impacket",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Python network protocol library"
+    },
+    {
+      "id": "github-metasploit",
+      "name": "Metasploit Releases",
+      "url": "https://github.com/rapid7/metasploit-framework",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Penetration testing framework"
+    },
+    {
+      "id": "github-bloodhound",
+      "name": "BloodHound Releases",
+      "url": "https://github.com/BloodHoundAD/BloodHound",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "AD attack path mapping"
+    },
+    {
+      "id": "github-subfinder",
+      "name": "Subfinder Releases",
+      "url": "https://github.com/projectdiscovery/subfinder",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Subdomain discovery tool"
+    },
+    {
+      "id": "github-ffuf",
+      "name": "ffuf Releases",
+      "url": "https://github.com/ffuf/ffuf",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Fast web fuzzer"
+    }
+  ]
+}

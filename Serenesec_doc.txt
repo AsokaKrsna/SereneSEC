@@ -1,0 +1,465 @@
+SERENESEC (OSR-01)
+Distraction-Free Cybersecurity Reading Platform
+Product & Technical Specification – v1.0
+
+1. Project Overview
+Project Name
+
+SereneSec
+
+Internal Code
+
+OSR-01
+
+Platform
+
+Android (Native, Kotlin)
+
+License
+
+AGPL v3 (Open Source)
+
+Target Audience
+
+Cybersecurity students, researchers, practitioners, and technically inclined readers who prioritize deep reading, privacy, and focus over real-time engagement.
+
+2. Vision & Core Philosophy
+
+SereneSec is a local-first, privacy-preserving, distraction-free cybersecurity reading environment designed to counter infinite scrolling, attention hijacking, and platform dependency.
+
+The application is intentionally not a news app, social feed, or aggregator optimized for engagement. Instead, it acts as a finite reading inbox that users can meaningfully complete.
+
+Non-Negotiable Principles
+
+Zero-Server Architecture
+All logic, storage, parsing, and transformation occurs on the user’s device.
+There is no backend, no telemetry, and no centralized control plane.
+
+Finite Consumption Model
+Users are encouraged to finish reading sessions. Infinite scroll, algorithmic feeds, and real-time updates are explicitly rejected.
+
+Intentional Friction
+The app actively resists context switching, app swapping, and dopamine loops.
+
+Creator Respect & Copyright Safety
+Content is fetched directly from the source.
+The default experience preserves the original webpage (ads/analytics intact).
+Reader transformations occur locally, on demand, and are not redistributed.
+
+Privacy as a First-Class Feature
+No analytics SDKs, no tracking, no identifiers, no cloud sync.
+
+3. What We Are Building (Product Scope)
+
+SereneSec consists of four major functional modules:
+
+Content Engine (Input)
+
+Finite Inbox (Organization)
+
+Serene Reader (Consumption)
+
+Privacy & Offline Layer
+
+Each module is independent but tightly integrated through a local data model.
+
+4. Module A – Content Engine (Input)
+Objective
+
+Deliver cybersecurity content immediately with zero setup while remaining extensible and user-controlled.
+
+4.1 Zero-Config Onboarding
+
+On first launch, the app loads a bundled configuration file:
+
+sources_default.json
+
+This file contains a curated list of verified cybersecurity sources, such as:
+
+Independent security researchers
+
+Vendor security blogs
+
+Government advisories
+
+Research groups
+
+The user sees content immediately without adding or configuring anything.
+
+This file is static, versioned with the app, and auditable.
+
+4.2 Universal Source Support
+
+The Content Engine normalizes multiple source types into a single internal model.
+
+Supported Source Types
+
+RSS / Atom Feeds
+
+Standard blogs and advisories
+
+Parsed using lightweight XML streaming
+
+Fields extracted:
+
+Title
+
+Author (if available)
+
+Publish date
+
+Summary/description
+
+Canonical link
+
+GitHub Releases
+
+Input: https://github.com/user/repo
+
+Internally transformed to:
+https://github.com/user/repo/releases.atom
+
+Used for tool updates and security project releases
+
+Extensible API Sources (Phase 2)
+
+Structured public APIs (e.g., CVE JSON feeds)
+
+Explicit adapters required per API
+
+Metadata only (no full article mirroring)
+
+4.3 Source Management
+
+Users can:
+
+Enable or disable individual sources via a toggle
+
+Soft-disable sources without deletion
+
+Re-enable sources at any time
+
+Sources are never removed automatically, even if unreachable.
+
+5. Module B – The Finite Inbox (Organization)
+Objective
+
+Replace infinite feeds with a session-based, completion-oriented reading workflow.
+
+5.1 Session-Based Feed
+
+The feed is static per fetch cycle
+
+New items appear only when:
+
+User manually refreshes
+
+Background fetch executes (WorkManager)
+
+There is no live updating, push model, or auto-insertion.
+
+5.2 Article Lifecycle States
+
+Each article exists in exactly one state:
+
+UNREAD – fetched but not opened
+
+READ – opened at least once
+
+ARCHIVED – user-dismissed or completed
+
+State transitions are user-controlled and reversible.
+
+5.3 Completion Feedback
+
+When the inbox is empty:
+
+Display a calm “All Caught Up” screen
+
+No prompts to fetch more content
+
+No gamification or streaks
+
+The UI reinforces closure, not urgency.
+
+5.4 Local Filtering
+
+Lightweight, non-algorithmic filters:
+
+News
+
+Tool Updates
+
+CVEs
+
+Research
+
+Filters operate entirely locally and do not influence ranking.
+
+6. Module C – The Serene Reader (Consumption)
+Objective
+
+Allow deep reading without app switching while respecting content ownership.
+
+6.1 Internal Browser (WebView)
+
+All links open inside an embedded WebView
+
+External browser intents are blocked by default
+
+Navigation is constrained to prevent app hopping
+
+The WebView is not a general browser:
+
+No tabs
+
+No downloads
+
+No external redirects without confirmation
+
+6.2 Default Reading Mode (Respectful Mode)
+
+By default:
+
+The full mobile webpage is loaded
+
+Ads, analytics, and creator tracking remain intact
+
+This ensures:
+
+Accurate view counts
+
+Ethical consumption
+
+Legal safety
+
+6.3 Focus Mode (Core Feature)
+
+Focus Mode is explicitly user-activated via a Floating Action Button.
+
+When enabled:
+
+The current DOM is cloned locally
+
+Mozilla Readability.js is executed
+
+The page is transformed client-side into a clean reading layout
+
+Focus Mode Guarantees
+
+No sidebars
+
+No popups
+
+No comments
+
+No related-article rabbit holes
+
+Single font family
+
+Forced dark mode
+
+Line length normalization
+
+The original URL is preserved and visible.
+
+6.4 Code Block Protection
+
+Special handling ensures:
+
+<pre> and <code> blocks are preserved
+
+No reflow, truncation, or font corruption
+
+Horizontal scrolling remains intact
+
+This is critical for technical accuracy.
+
+6.5 External Link Escapes
+
+If a link requires leaving the WebView (e.g., PDF, map, non-HTML):
+
+A bottom sheet appears:
+“This link requires an external browser. Open Chrome?”
+
+Options:
+
+Cancel (default)
+
+Open
+
+This maintains intentional friction.
+
+7. Module D – Privacy & Offline
+Objective
+
+Ensure trust through local-only operation and offline resilience.
+
+7.1 Offline-First Behavior
+
+Article metadata is always stored locally
+
+Full article HTML is cached only when permitted
+
+Cached content:
+
+Text persists
+
+Images cached for 24 hours (lazy-loaded)
+
+The app remains usable without network access.
+
+7.2 Data Isolation
+
+Strict prohibitions:
+
+No Firebase
+
+No Crashlytics
+
+No analytics SDKs
+
+No remote config
+
+All logs remain local and user-accessible if enabled.
+
+8. Technical Architecture
+8.1 Architectural Pattern
+
+Clean Architecture + MVVM
+
+8.2 Layer Responsibilities
+Data Layer
+
+Feed repositories
+
+Network fetchers
+
+Room DAOs
+
+Source adapters
+
+Domain Layer
+
+Use cases:
+
+FetchFeedsUseCase
+
+ParseFeedUseCase
+
+CacheArticleUseCase
+
+SanitizeHtmlUseCase
+
+UI Layer
+
+Jetpack Compose (preferred)
+
+StateFlow-based state management
+
+WebView integration
+
+9. Technology Stack
+Component	Technology	Rationale
+Language	Kotlin	Coroutines, safety
+Database	Room (SQLite)	Type-safe persistence
+Networking	Retrofit + OkHttp	Stable, interceptable
+XML Parsing	XmlPullParser	Low memory footprint
+Background Tasks	WorkManager	Battery-aware
+Reader Engine	Android WebView	JS injection support
+Reader Logic	Mozilla Readability.js	Industry-proven
+10. Database Schema (Room)
+Sources Table
+
+id (PK)
+
+name
+
+url
+
+type (RSS / GITHUB / API)
+
+isEnabled
+
+lastFetchTime
+
+Articles Table
+
+id (PK)
+
+sourceId (FK)
+
+title
+
+summary
+
+contentUrl
+
+publishedDate
+
+isRead
+
+isArchived
+
+contentHtml (nullable, cached)
+
+11. Security Considerations
+
+SereneSec must model best practices expected from a security-focused tool.
+
+WebView sandboxing
+
+No cleartext traffic by default
+
+Explicit opt-in for HTTP sources
+
+RSS input sanitization
+
+Script stripping from feed summaries
+
+Defensive parsing to prevent stored XSS
+
+12. Explicit Non-Goals
+
+SereneSec will not:
+
+Provide recommendations
+
+Track user behavior
+
+Sync across devices
+
+Monetize content
+
+Host or redistribute articles
+
+Compete with news platforms
+
+13. Success Criteria (v1)
+
+The project is considered successful if:
+
+Users can complete reading sessions without distraction
+
+No app swapping occurs during reading by default
+
+Content creators’ pages are respected
+
+Battery and data usage remain minimal
+
+The codebase is auditable, forkable, and contributor-friendly
+
+Final Note :
+
+This project optimizes for calm, trust, and longevity, not growth metrics.
+Any feature that increases engagement at the cost of focus is a regression.
+
+If there is ambiguity, default to:
+
+Less automation
+
+More user control
+
+Fewer background actions
+
+Stronger friction
