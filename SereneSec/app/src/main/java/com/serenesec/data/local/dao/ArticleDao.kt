@@ -76,6 +76,26 @@ interface ArticleDao {
     @Query("DELETE FROM articles WHERE state = 'ARCHIVED' AND createdAt < :olderThan")
     suspend fun deleteOldArchivedArticles(olderThan: Long)
     
+    /**
+     * Delete old regular articles (not saved, not favorite, not in collections, not archived)
+     * Keeps articles that are:
+     * - Saved for later (isSavedForLater = 1)
+     * - Favorites (isFavorite = 1)
+     * - Archived (state = 'ARCHIVED')
+     * - In collections (has entries in article_collections)
+     */
+    @Query("""
+        DELETE FROM articles 
+        WHERE createdAt < :olderThan 
+        AND state != 'ARCHIVED'
+        AND isFavorite = 0 
+        AND isSavedForLater = 0
+        AND id NOT IN (
+            SELECT articleId FROM article_collections
+        )
+    """)
+    suspend fun deleteOldRegularArticles(olderThan: Long): Int
+    
     // Delete all articles from a source
     @Query("DELETE FROM articles WHERE sourceId = :sourceId")
     suspend fun deleteArticlesBySource(sourceId: String)

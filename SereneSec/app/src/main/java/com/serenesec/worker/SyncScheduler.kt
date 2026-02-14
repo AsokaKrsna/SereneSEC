@@ -13,13 +13,18 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * Scheduler for background sync work
+ * Scheduler for background sync and cleanup work
  */
 @Singleton
 class SyncScheduler @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
     private val workManager = WorkManager.getInstance(context)
+    
+    init {
+        // Always schedule daily cleanup
+        scheduleCleanupWork()
+    }
     
     /**
      * Schedule periodic sync based on user preference
@@ -54,9 +59,41 @@ class SyncScheduler @Inject constructor(
     }
     
     /**
+     * Schedule daily cleanup of old articles
+     * Runs once per day to remove articles older than 5 days
+     * (except saved, favorites, archived, or in collections)
+     */
+    private fun scheduleCleanupWork() {
+        val constraints = Constraints.Builder()
+            .setRequiresBatteryNotLow(true)
+            .build()
+        
+        val cleanupRequest = PeriodicWorkRequestBuilder<CleanupWorker>(
+            1, TimeUnit.DAYS,
+            // Flex interval: 6 hour window
+            6, TimeUnit.HOURS
+        )
+            .setConstraints(constraints)
+            .build()
+        
+        workManager.enqueueUniquePeriodicWork(
+            CleanupWorker.WORK_NAME,
+            ExistingPeriodicWorkPolicy.KEEP, // Keep existing schedule
+            cleanupRequest
+        )
+    }
+    
+    /**
      * Cancel all scheduled sync work
      */
     fun cancelSyncWork() {
         workManager.cancelUniqueWork(SyncWorker.WORK_NAME)
+    }
+    
+    /**
+     * Cancel cleanup work (not recommended)
+     */
+    fun cancelCleanupWork() {
+        workManager.cancelUniqueWork(CleanupWorker.WORK_NAME)
     }
 }

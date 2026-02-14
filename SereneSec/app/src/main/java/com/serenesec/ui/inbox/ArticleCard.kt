@@ -58,6 +58,19 @@ import com.serenesec.ui.theme.CategoryCVE
 import com.serenesec.ui.theme.CategoryNews
 import com.serenesec.ui.theme.CategoryResearch
 import com.serenesec.ui.theme.CategoryTools
+import com.serenesec.ui.theme.CategoryThreatIntel
+import com.serenesec.ui.theme.CategoryGovAdvisory
+import com.serenesec.ui.theme.CategoryMalware
+import com.serenesec.ui.theme.CategoryExploits
+import com.serenesec.ui.theme.CategoryPrograms
+import com.serenesec.ui.theme.CategoryWriteups
+import com.serenesec.ui.theme.CategoryPodcast
+import com.serenesec.ui.theme.CategoryLearning
+import com.serenesec.ui.theme.CategoryDefense
+import com.serenesec.ui.theme.CategoryCloud
+import com.serenesec.ui.theme.CategoryTradecraft
+import com.serenesec.ui.theme.CategoryIncidents
+import com.serenesec.ui.theme.CategoryConference
 import com.serenesec.ui.theme.Unread
 import com.serenesec.ui.tags.TagsViewModel
 import java.text.SimpleDateFormat
@@ -293,6 +306,19 @@ fun CategoryChip(
         Category.TOOLS -> CategoryTools to "Tools"
         Category.CVE -> CategoryCVE to "CVE"
         Category.RESEARCH -> CategoryResearch to "Research"
+        Category.THREAT_INTEL -> CategoryThreatIntel to "Threat Intel"
+        Category.GOV_ADVISORY -> CategoryGovAdvisory to "Gov Advisory"
+        Category.MALWARE -> CategoryMalware to "Malware"
+        Category.EXPLOITS -> CategoryExploits to "Exploits"
+        Category.PROGRAMS -> CategoryPrograms to "Programs"
+        Category.WRITEUPS -> CategoryWriteups to "Writeups"
+        Category.PODCAST -> CategoryPodcast to "Podcast"
+        Category.LEARNING -> CategoryLearning to "Learning"
+        Category.DEFENSE -> CategoryDefense to "Defense"
+        Category.CLOUD -> CategoryCloud to "Cloud"
+        Category.TRADECRAFT -> CategoryTradecraft to "Tradecraft"
+        Category.INCIDENTS -> CategoryIncidents to "Incidents"
+        Category.CONFERENCE -> CategoryConference to "Conference"
     }
     
     Box(

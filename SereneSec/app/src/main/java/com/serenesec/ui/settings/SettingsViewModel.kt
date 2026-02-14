@@ -6,6 +6,8 @@ import com.serenesec.data.preferences.AccentColor
 import com.serenesec.data.preferences.SyncFrequency
 import com.serenesec.data.preferences.ThemeMode
 import com.serenesec.data.preferences.UserPreferences
+import com.serenesec.domain.usecase.CleanupOldArticlesUseCase
+import com.serenesec.domain.usecase.CleanupResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -15,7 +17,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
-    private val userPreferences: UserPreferences
+    private val userPreferences: UserPreferences,
+    private val cleanupOldArticlesUseCase: CleanupOldArticlesUseCase
 ) : ViewModel() {
     
     val syncFrequency: StateFlow<SyncFrequency> = userPreferences.syncFrequency
@@ -49,5 +52,12 @@ class SettingsViewModel @Inject constructor(
     
     suspend fun setAccentColor(color: AccentColor) {
         userPreferences.setAccentColor(color)
+    }
+    
+    suspend fun cleanupOldArticles(): String {
+        return when (val result = cleanupOldArticlesUseCase()) {
+            is CleanupResult.Success -> result.message
+            is CleanupResult.Error -> "Cleanup failed: ${result.message}"
+        }
     }
 }

@@ -94,6 +94,11 @@ class ArticleRepositoryImpl @Inject constructor(
         articleDao.deleteOldArchivedArticles(cutoffTime)
     }
     
+    override suspend fun deleteOldRegularArticles(olderThanDays: Int): Int {
+        val cutoffTime = System.currentTimeMillis() - (olderThanDays * 24 * 60 * 60 * 1000L)
+        return articleDao.deleteOldRegularArticles(cutoffTime)
+    }
+    
     override suspend fun toggleFavorite(id: String, isFavorite: Boolean) {
         articleDao.setFavorite(id, isFavorite)
     }

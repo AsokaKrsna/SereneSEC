@@ -39,10 +39,23 @@ val Error = Color(0xFFF85149)
 val Info = Color(0xFF58A6FF)
 
 // Category colors
-val CategoryNews = Color(0xFF58A6FF)      // Blue
-val CategoryTools = Color(0xFFA371F7)     // Purple
-val CategoryCVE = Color(0xFFF85149)       // Red
-val CategoryResearch = Color(0xFF3FB950)  // Green
+val CategoryNews = Color(0xFF58A6FF)          // Blue
+val CategoryTools = Color(0xFFA371F7)         // Purple
+val CategoryCVE = Color(0xFFF85149)           // Red
+val CategoryResearch = Color(0xFF3FB950)      // Green
+val CategoryThreatIntel = Color(0xFFFF7B72)   // Coral Red
+val CategoryGovAdvisory = Color(0xFF79C0FF)   // Light Blue
+val CategoryMalware = Color(0xFFDB6D28)       // Orange
+val CategoryExploits = Color(0xFFE3B341)      // Yellow
+val CategoryPrograms = Color(0xFF56D364)      // Lime Green
+val CategoryWriteups = Color(0xFF8B949E)      // Gray
+val CategoryPodcast = Color(0xFFBC8CFF)       // Light Purple
+val CategoryLearning = Color(0xFF39D353)      // Bright Green
+val CategoryDefense = Color(0xFF1F6FEB)       // Deep Blue
+val CategoryCloud = Color(0xFF388BFD)         // Sky Blue
+val CategoryTradecraft = Color(0xFFDA3633)    // Crimson
+val CategoryIncidents = Color(0xFFFFA657)     // Amber
+val CategoryConference = Color(0xFF8957E5)    // Violet
 
 // Special
 val Unread = Color(0xFF58A6FF)

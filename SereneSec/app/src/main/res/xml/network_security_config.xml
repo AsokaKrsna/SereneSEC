@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Default: Only HTTPS allowed -->
+    <base-config cleartextTrafficPermitted="false" />
+    
+    <!-- Allow cleartext for specific domains that use HTTP redirects -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">feeds.feedburner.com</domain>
+        <domain includeSubdomains="true">feedburner.google.com</domain>
+        <domain includeSubdomains="true">feedproxy.google.com</domain>
+        <domain includeSubdomains="true">blogspot.com</domain>
+        <domain includeSubdomains="true">googleblog.com</domain>
+        <domain includeSubdomains="true">exploit-db.com</domain>
+    </domain-config>
+</network-security-config>

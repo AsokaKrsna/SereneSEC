@@ -6,6 +6,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <!-- Notification permission (Android 13+) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <!-- Background sync -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
@@ -24,7 +27,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SereneSec"
-        android:usesCleartextTraffic="false"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:resizeableActivity="true"
         tools:targetApi="35">
 
@@ -89,6 +92,45 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/news_widget_info" />
+        </receiver>
+
+        <!-- Article List Widget (Large) -->
+        <receiver
+            android:name=".widget.ArticleListWidgetReceiver"
+            android:exported="true"
+            android:label="Security Articles (Large)">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/article_list_widget_info" />
+        </receiver>
+
+        <!-- Compact Article Widget (Medium) -->
+        <receiver
+            android:name=".widget.CompactArticleWidgetReceiver"
+            android:exported="true"
+            android:label="Security Articles (Compact)">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/compact_article_widget_info" />
+        </receiver>
+
+        <!-- Unread Count Widget (Small) -->
+        <receiver
+            android:name=".widget.UnreadCountWidgetReceiver"
+            android:exported="true"
+            android:label="Unread Count">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/unread_count_widget_info" />
         </receiver>
 
         <!-- File Provider for sharing -->

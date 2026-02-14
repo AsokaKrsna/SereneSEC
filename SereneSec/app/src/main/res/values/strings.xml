@@ -82,6 +82,9 @@
     <!-- Widget -->
     <string name="widget_name">Security News</string>
     <string name="widget_description">Display latest security news on your home screen</string>
+    <string name="article_list_widget_description">Detailed list of latest security articles</string>
+    <string name="compact_widget_description">Compact view of top 3 security articles</string>
+    <string name="unread_count_widget_description">Show unread article count at a glance</string>
     
     <!-- Floating Window -->
     <string name="floating_window">Floating Window</string>

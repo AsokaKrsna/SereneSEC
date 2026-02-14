@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -29,6 +30,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -40,6 +42,10 @@ fun ScrollableBottomNav(
     onItemSelected: (BottomNavItem) -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val configuration = LocalConfiguration.current
+    val screenWidthDp = configuration.screenWidthDp
+    val isTablet = screenWidthDp >= 600 // Tablet breakpoint
+    
     val scrollState = rememberScrollState()
     
     Surface(
@@ -50,56 +56,76 @@ fun ScrollableBottomNav(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .horizontalScroll(scrollState)
-                .padding(horizontal = 8.dp, vertical = 8.dp),
-            horizontalArrangement = Arrangement.spacedBy(4.dp)
+                .then(
+                    if (isTablet) {
+                        // On tablets, distribute evenly without scroll
+                        Modifier.padding(horizontal = 8.dp, vertical = 8.dp)
+                    } else {
+                        // On phones, enable horizontal scroll
+                        Modifier
+                            .horizontalScroll(scrollState)
+                            .padding(horizontal = 8.dp, vertical = 8.dp)
+                    }
+                ),
+            horizontalArrangement = if (isTablet) {
+                Arrangement.SpaceEvenly
+            } else {
+                Arrangement.spacedBy(4.dp)
+            }
         ) {
             NavItem(
                 icon = Icons.Default.Inbox,
                 label = "Inbox",
                 selected = selectedItem == BottomNavItem.INBOX,
-                onClick = { onItemSelected(BottomNavItem.INBOX) }
+                onClick = { onItemSelected(BottomNavItem.INBOX) },
+                isTablet = isTablet
             )
             NavItem(
                 icon = Icons.Default.Favorite,
                 label = "Favorites",
                 selected = selectedItem == BottomNavItem.FAVORITES,
-                onClick = { onItemSelected(BottomNavItem.FAVORITES) }
+                onClick = { onItemSelected(BottomNavItem.FAVORITES) },
+                isTablet = isTablet
             )
             NavItem(
                 icon = Icons.Default.Bookmark,
                 label = "Saved",
                 selected = selectedItem == BottomNavItem.SAVED,
-                onClick = { onItemSelected(BottomNavItem.SAVED) }
+                onClick = { onItemSelected(BottomNavItem.SAVED) },
+                isTablet = isTablet
             )
             NavItem(
                 icon = Icons.Default.Folder,
                 label = "Collections",
                 selected = selectedItem == BottomNavItem.COLLECTIONS,
-                onClick = { onItemSelected(BottomNavItem.COLLECTIONS) }
+                onClick = { onItemSelected(BottomNavItem.COLLECTIONS) },
+                isTablet = isTablet
             )
             NavItem(
                 icon = Icons.Default.CheckCircle,
                 label = "Archive",
                 selected = selectedItem == BottomNavItem.ARCHIVE,
-                onClick = { onItemSelected(BottomNavItem.ARCHIVE) }
+                onClick = { onItemSelected(BottomNavItem.ARCHIVE) },
+                isTablet = isTablet
             )
             NavItem(
                 icon = Icons.Default.Language,
                 label = "Websites",
                 selected = selectedItem == BottomNavItem.WEBSITES,
-                onClick = { onItemSelected(BottomNavItem.WEBSITES) }
+                onClick = { onItemSelected(BottomNavItem.WEBSITES) },
+                isTablet = isTablet
             )
         }
     }
 }
 
 @Composable
-private fun NavItem(
+private fun RowScope.NavItem(
     icon: ImageVector,
     label: String,
     selected: Boolean,
     onClick: () -> Unit,
+    isTablet: Boolean,
     modifier: Modifier = Modifier
 ) {
     val backgroundColor = if (selected) {
@@ -116,6 +142,7 @@ private fun NavItem(
     
     Column(
         modifier = modifier
+            .then(if (isTablet) Modifier.weight(1f) else Modifier)
             .clip(RoundedCornerShape(12.dp))
             .background(backgroundColor)
             .clickable(onClick = onClick)

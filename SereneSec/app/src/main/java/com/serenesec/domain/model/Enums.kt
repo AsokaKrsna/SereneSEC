@@ -16,7 +16,20 @@ enum class Category(val displayName: String) {
     NEWS("News"),
     TOOLS("Tools"),
     CVE("CVE"),
-    RESEARCH("Research")
+    RESEARCH("Research"),
+    THREAT_INTEL("Threat Intel"),
+    GOV_ADVISORY("Gov Advisory"),
+    MALWARE("Malware"),
+    EXPLOITS("Exploits"),
+    PROGRAMS("Programs"),
+    WRITEUPS("Writeups"),
+    PODCAST("Podcast"),
+    LEARNING("Learning"),
+    DEFENSE("Defense"),
+    CLOUD("Cloud"),
+    TRADECRAFT("Tradecraft"),
+    INCIDENTS("Incidents"),
+    CONFERENCE("Conference")
 }
 
 /**

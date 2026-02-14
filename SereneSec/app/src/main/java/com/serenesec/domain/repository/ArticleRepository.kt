@@ -91,6 +91,16 @@ interface ArticleRepository {
     suspend fun deleteOldArchivedArticles(olderThanDays: Int = 30)
     
     /**
+     * Delete old regular articles (not saved, not favorite, not in collections)
+     * Keeps articles older than specified days that are:
+     * - Saved for later
+     * - Favorites
+     * - Archived
+     * - In collections
+     */
+    suspend fun deleteOldRegularArticles(olderThanDays: Int = 5): Int
+    
+    /**
      * Toggle favorite status
      */
     suspend fun toggleFavorite(id: String, isFavorite: Boolean)

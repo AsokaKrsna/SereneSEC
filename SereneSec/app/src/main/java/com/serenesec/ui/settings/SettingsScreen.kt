@@ -26,6 +26,7 @@ import androidx.compose.material.icons.filled.Analytics
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.DarkMode
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Folder
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Label
@@ -88,6 +89,8 @@ fun SettingsScreen(
     var showSyncDialog by remember { mutableStateOf(false) }
     var showThemeDialog by remember { mutableStateOf(false) }
     var showColorDialog by remember { mutableStateOf(false) }
+    var showCleanupDialog by remember { mutableStateOf(false) }
+    var cleanupMessage by remember { mutableStateOf<String?>(null) }
     
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     
@@ -153,6 +156,13 @@ fun SettingsScreen(
                 title = "Sync Frequency",
                 subtitle = syncFrequency.displayName,
                 onClick = { showSyncDialog = true }
+            )
+            
+            SettingsItem(
+                icon = Icons.Default.Delete,
+                title = "Clean Up Old Articles",
+                subtitle = "Remove articles older than 5 days",
+                onClick = { showCleanupDialog = true }
             )
             
             HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
@@ -275,6 +285,52 @@ fun SettingsScreen(
                 scope.launch { viewModel.setAccentColor(it) }
             },
             onDismiss = { showColorDialog = false }
+        )
+    }
+    
+    // Cleanup confirmation dialog
+    if (showCleanupDialog) {
+        AlertDialog(
+            onDismissRequest = { showCleanupDialog = false },
+            title = { Text("Clean Up Old Articles?") },
+            text = { 
+                Text(
+                    "This will remove articles older than 5 days.\n\n" +
+                    "Articles that are saved, favorited, archived, or in collections will be kept."
+                )
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        scope.launch {
+                            val result = viewModel.cleanupOldArticles()
+                            cleanupMessage = result
+                            showCleanupDialog = false
+                        }
+                    }
+                ) {
+                    Text("Clean Up")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showCleanupDialog = false }) {
+                    Text("Cancel")
+                }
+            }
+        )
+    }
+    
+    // Cleanup result message
+    cleanupMessage?.let { message ->
+        AlertDialog(
+            onDismissRequest = { cleanupMessage = null },
+            title = { Text("Cleanup Complete") },
+            text = { Text(message) },
+            confirmButton = {
+                TextButton(onClick = { cleanupMessage = null }) {
+                    Text("OK")
+                }
+            }
         )
     }
 }
