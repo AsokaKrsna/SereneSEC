@@ -14,16 +14,19 @@ class AutoTagUseCase @Inject constructor(
 ) {
     
     /**
-     * Auto-assign tags to an article based on case-insensitive word matching.
-     * The tag name is matched exactly against words in the article title.
+     * Auto-assign tags to an article based on word-boundary matching.
+     * Prevents partial substring false-positives (e.g. 'apt' matching 'adaptation').
      */
     suspend fun autoTagArticle(articleId: String, articleTitle: String) {
         val allTags = tagDao.getAllTagsList()
-        val titleLower = articleTitle.lowercase()
-        
-        // Match tags where the tag name (case-insensitive) appears in the title
+        if (allTags.isEmpty() || articleTitle.isBlank()) return
+
+        // Match tags using word boundaries to ensure whole-token matching
         val matchingTags = allTags.filter { tag ->
-            titleLower.contains(tag.name.lowercase())
+            val tagName = tag.name.trim()
+            if (tagName.isEmpty()) return@filter false
+            val regex = Regex("\\b${Regex.escape(tagName)}\\b", RegexOption.IGNORE_CASE)
+            regex.containsMatchIn(articleTitle)
         }
         
         // Create cross-references for matching tags

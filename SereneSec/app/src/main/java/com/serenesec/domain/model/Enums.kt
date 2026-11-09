@@ -4,9 +4,10 @@ package com.serenesec.domain.model
  * Represents the type of content source
  */
 enum class SourceType {
-    RSS,      // Standard RSS/Atom feed
+    RSS,      // Standard RSS feed
+    ATOM,     // Standard Atom feed
     GITHUB,   // GitHub releases (auto-converted to releases.atom)
-    API       // Future: structured API sources
+    API       // Structured API sources
 }
 
 /**
@@ -18,6 +19,7 @@ enum class Category(val displayName: String) {
     CVE("CVE"),
     RESEARCH("Research"),
     THREAT_INTEL("Threat Intel"),
+    BLOCKCHAIN("Blockchain"),
     GOV_ADVISORY("Gov Advisory"),
     MALWARE("Malware"),
     EXPLOITS("Exploits"),

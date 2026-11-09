@@ -1,0 +1,437 @@
+{
+  "version": 7,
+  "sources": [
+    {
+      "id": "krebs-security",
+      "name": "Krebs on Security",
+      "url": "https://krebsonsecurity.com/feed/",
+      "type": "RSS",
+      "category": "NEWS",
+      "description": "In-depth security news by Brian Krebs"
+    },
+    {
+      "id": "schneier-blog",
+      "name": "Schneier on Security",
+      "url": "https://www.schneier.com/feed/atom/",
+      "type": "RSS",
+      "category": "NEWS",
+      "description": "Bruce Schneier's security blog"
+    },
+    {
+      "id": "bleeping-computer",
+      "name": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/feed/",
+      "type": "RSS",
+      "category": "NEWS",
+      "description": "Technology news and security"
+    },
+    {
+      "id": "troy-hunt",
+      "name": "Troy Hunt",
+      "url": "https://www.troyhunt.com/rss/",
+      "type": "RSS",
+      "category": "NEWS",
+      "description": "Web security and data breaches"
+    },
+    {
+      "id": "the-hacker-news",
+      "name": "The Hacker News",
+      "url": "https://thehackernews.com/feeds/posts/default",
+      "type": "RSS",
+      "category": "NEWS",
+      "description": "Cybersecurity news platform"
+    },
+    {
+      "id": "dark-reading",
+      "name": "Dark Reading",
+      "url": "https://www.darkreading.com/rss.xml",
+      "type": "RSS",
+      "category": "NEWS",
+      "description": "Enterprise security news"
+    },
+    {
+      "id": "ars-technica-security",
+      "name": "Ars Technica Security",
+      "url": "https://arstechnica.com/security/feed/",
+      "type": "RSS",
+      "category": "NEWS",
+      "description": "In-depth tech/security news & analysis"
+    },
+    {
+      "id": "wired-security",
+      "name": "WIRED Security",
+      "url": "https://www.wired.com/feed/category/security/rss",
+      "type": "RSS",
+      "category": "NEWS",
+      "description": "Security, privacy and policy reporting"
+    },
+    {
+      "id": "thedfirreport",
+      "name": "The DFIR Report",
+      "url": "https://thedfirreport.com/feed/",
+      "type": "RSS",
+      "category": "THREAT_INTEL",
+      "description": "High-fidelity ransomware attack chains and logs"
+    },
+    {
+      "id": "sans-isc",
+      "name": "SANS ISC Diaries",
+      "url": "https://isc.sans.edu/rssfeed.xml",
+      "type": "RSS",
+      "category": "THREAT_INTEL",
+      "description": "Handler diaries and daily threat telemetry"
+    },
+    {
+      "id": "rekt-news",
+      "name": "Rekt News",
+      "url": "https://rekt.news/feed/",
+      "type": "RSS",
+      "category": "BLOCKCHAIN",
+      "description": "Leading DeFi exploit postmortems and smart contract hack leaderboard"
+    },
+    {
+      "id": "paradigm-research",
+      "name": "Paradigm Research",
+      "url": "https://www.paradigm.xyz/rss.xml",
+      "type": "RSS",
+      "category": "BLOCKCHAIN",
+      "description": "Frontier cryptography, EVM internals and protocol security"
+    },
+    {
+      "id": "openzeppelin-blog",
+      "name": "OpenZeppelin Security",
+      "url": "https://blog.openzeppelin.com/rss/",
+      "type": "RSS",
+      "category": "BLOCKCHAIN",
+      "description": "Smart contract audit reports and EVM security research"
+    },
+    {
+      "id": "immunefi-blog",
+      "name": "Immunefi Blog",
+      "url": "https://medium.com/feed/immunefi",
+      "type": "RSS",
+      "category": "BLOCKCHAIN",
+      "description": "Web3 bug bounties, whitehat disclosures and zero-day exploits"
+    },
+    {
+      "id": "chainalysis-blog",
+      "name": "Chainalysis Blog",
+      "url": "https://www.chainalysis.com/blog/feed/",
+      "type": "RSS",
+      "category": "BLOCKCHAIN",
+      "description": "On-chain threat intelligence, crypto crime and sanctions tracking"
+    },
+    {
+      "id": "slowmist-blog",
+      "name": "SlowMist Threat Intel",
+      "url": "https://slowmist.medium.com/feed",
+      "type": "RSS",
+      "category": "BLOCKCHAIN",
+      "description": "Web3 security alerts, wallet drainers and incident investigations"
+    },
+    {
+      "id": "google-project-zero",
+      "name": "Google Project Zero",
+      "url": "https://googleprojectzero.blogspot.com/feeds/posts/default",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Zero-day vulnerability research"
+    },
+    {
+      "id": "google-security-blog",
+      "name": "Google Security Blog",
+      "url": "https://security.googleblog.com/feeds/posts/default",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Google's security team updates"
+    },
+    {
+      "id": "mandiant",
+      "name": "Mandiant",
+      "url": "https://www.mandiant.com/resources/blog/rss.xml",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Threat research and incident response"
+    },
+    {
+      "id": "red-canary",
+      "name": "Red Canary",
+      "url": "https://redcanary.com/feed/",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Detection engineering and threat research"
+    },
+    {
+      "id": "crowdstrike",
+      "name": "CrowdStrike Blog",
+      "url": "https://www.crowdstrike.com/blog/feed/",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Adversary and threat research"
+    },
+    {
+      "id": "talos-intelligence",
+      "name": "Cisco Talos",
+      "url": "https://blog.talosintelligence.com/rss/",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Threat intelligence and research"
+    },
+    {
+      "id": "microsoft-security",
+      "name": "Microsoft Security Blog",
+      "url": "https://www.microsoft.com/en-us/security/blog/feed/",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Microsoft security research"
+    },
+    {
+      "id": "unit42",
+      "name": "Palo Alto Unit 42",
+      "url": "https://unit42.paloaltonetworks.com/feed/",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Threat intelligence by Unit 42"
+    },
+    {
+      "id": "sentinelone-labs",
+      "name": "SentinelOne Labs",
+      "url": "https://www.sentinelone.com/labs/feed/",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Malware and threat research"
+    },
+    {
+      "id": "securelist",
+      "name": "Securelist (Kaspersky)",
+      "url": "https://securelist.com/feed/",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Kaspersky's threat research"
+    },
+    {
+      "id": "malwarebytes-labs",
+      "name": "Malwarebytes Labs",
+      "url": "https://www.malwarebytes.com/blog/feed/index.xml",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Threat analysis and malware research"
+    },
+    {
+      "id": "portswigger-research",
+      "name": "PortSwigger Research",
+      "url": "https://portswigger.net/research/rss",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Web security research"
+    },
+    {
+      "id": "trailofbits-blog",
+      "name": "Trail of Bits",
+      "url": "https://blog.trailofbits.com/feed/",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Advanced program analysis, cryptography and blockchain audits"
+    },
+    {
+      "id": "volexity",
+      "name": "Volexity",
+      "url": "https://www.volexity.com/blog/feed/",
+      "type": "RSS",
+      "category": "RESEARCH",
+      "description": "Threat intelligence and memory forensics"
+    },
+    {
+      "id": "ncsc-uk",
+      "name": "NCSC UK",
+      "url": "https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml",
+      "type": "RSS",
+      "category": "GOV_ADVISORY",
+      "description": "UK National Cyber Security Centre"
+    },
+    {
+      "id": "cisa-news",
+      "name": "CISA News",
+      "url": "https://www.cisa.gov/news.xml",
+      "type": "RSS",
+      "category": "GOV_ADVISORY",
+      "description": "CISA cybersecurity news and updates"
+    },
+    {
+      "id": "nist-nvd",
+      "name": "NIST NVD Recent",
+      "url": "https://nvd.nist.gov/feeds/xml/cve/misc/nvd-rss.xml",
+      "type": "RSS",
+      "category": "CVE",
+      "description": "Recent CVE entries from NIST"
+    },
+    {
+      "id": "malware-traffic-analysis",
+      "name": "Malware Traffic Analysis",
+      "url": "https://www.malware-traffic-analysis.net/blog-entries.rss",
+      "type": "RSS",
+      "category": "MALWARE",
+      "description": "PCAP-based malware analysis"
+    },
+    {
+      "id": "github-nuclei",
+      "name": "Nuclei Releases",
+      "url": "https://github.com/projectdiscovery/nuclei/releases.atom",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Fast vulnerability scanner releases"
+    },
+    {
+      "id": "github-slither",
+      "name": "Slither Releases",
+      "url": "https://github.com/crytic/slither/releases.atom",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Solidity static analysis framework releases"
+    },
+    {
+      "id": "github-foundry",
+      "name": "Foundry Releases",
+      "url": "https://github.com/foundry-rs/foundry/releases.atom",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Fast Ethereum smart contract testing, fuzzing and deployment toolkit"
+    },
+    {
+      "id": "github-nmap",
+      "name": "Nmap Releases",
+      "url": "https://github.com/nmap/nmap/releases.atom",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Network mapper releases"
+    },
+    {
+      "id": "github-bloodhound",
+      "name": "BloodHound Releases",
+      "url": "https://github.com/BloodHoundAD/BloodHound/releases.atom",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "AD attack path mapping releases"
+    },
+    {
+      "id": "github-impacket",
+      "name": "Impacket Releases",
+      "url": "https://github.com/fortra/impacket/releases.atom",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Impacket network protocol releases"
+    },
+    {
+      "id": "github-burpsuite",
+      "name": "Burp Suite API Releases",
+      "url": "https://github.com/PortSwigger/burp-extensions-montoya-api/releases.atom",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Burp Suite extension API releases"
+    },
+    {
+      "id": "github-subfinder",
+      "name": "Subfinder Releases",
+      "url": "https://github.com/projectdiscovery/subfinder/releases.atom",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Subdomain discovery tool releases"
+    },
+    {
+      "id": "github-ffuf",
+      "name": "ffuf Releases",
+      "url": "https://github.com/ffuf/ffuf/releases.atom",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Fast web fuzzer releases"
+    },
+    {
+      "id": "bugcrowd-blog",
+      "name": "Bugcrowd Blog",
+      "url": "https://www.bugcrowd.com/blog/feed/",
+      "type": "RSS",
+      "category": "PROGRAMS",
+      "description": "Bug bounty platform updates"
+    },
+    {
+      "id": "darknet-diaries",
+      "name": "Darknet Diaries",
+      "url": "https://feeds.megaphone.fm/darknetdiaries",
+      "type": "RSS",
+      "category": "PODCAST",
+      "description": "Stories about breaches and malware"
+    },
+    {
+      "id": "offsec-blog",
+      "name": "Offensive Security",
+      "url": "https://www.offsec.com/feed/",
+      "type": "RSS",
+      "category": "LEARNING",
+      "description": "OSCP and penetration testing"
+    },
+    {
+      "id": "ippsec",
+      "name": "IppSec",
+      "url": "https://ippsec.rocks/?feed=rss2",
+      "type": "RSS",
+      "category": "LEARNING",
+      "description": "HTB walkthroughs"
+    },
+    {
+      "id": "0xdf",
+      "name": "0xdf",
+      "url": "https://0xdf.gitlab.io/feed.xml",
+      "type": "RSS",
+      "category": "LEARNING",
+      "description": "Structured HTB/CTF writeups"
+    },
+    {
+      "id": "elastic-security-blog",
+      "name": "Elastic Security",
+      "url": "https://www.elastic.co/blog/feed",
+      "type": "RSS",
+      "category": "DEFENSE",
+      "description": "Detection logic and threat research"
+    },
+    {
+      "id": "rapid7-blog",
+      "name": "Rapid7 Blog",
+      "url": "https://www.rapid7.com/blog/feed/",
+      "type": "RSS",
+      "category": "DEFENSE",
+      "description": "Threat intelligence and vulnerability research"
+    },
+    {
+      "id": "aws-security-blog",
+      "name": "AWS Security",
+      "url": "https://aws.amazon.com/blogs/security/feed/",
+      "type": "RSS",
+      "category": "CLOUD",
+      "description": "Cloud security architecture"
+    },
+    {
+      "id": "specterops-blog",
+      "name": "SpecterOps",
+      "url": "https://posts.specterops.io/feed",
+      "type": "RSS",
+      "category": "TRADECRAFT",
+      "description": "AD attack primitives (includes Harmj0y)"
+    },
+    {
+      "id": "cloudflare-blog",
+      "name": "Cloudflare Blog",
+      "url": "https://blog.cloudflare.com/rss/",
+      "type": "RSS",
+      "category": "INCIDENTS",
+      "description": "Incident postmortems"
+    },
+    {
+      "id": "intigriti-blog",
+      "name": "Intigriti Blog",
+      "url": "https://blog.intigriti.com/feed",
+      "type": "RSS",
+      "category": "CONFERENCE",
+      "description": "Bug bounty and security research"
+    }
+  ]
+}

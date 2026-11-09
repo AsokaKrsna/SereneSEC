@@ -59,6 +59,7 @@ import com.serenesec.ui.theme.CategoryNews
 import com.serenesec.ui.theme.CategoryResearch
 import com.serenesec.ui.theme.CategoryTools
 import com.serenesec.ui.theme.CategoryThreatIntel
+import com.serenesec.ui.theme.CategoryBlockchain
 import com.serenesec.ui.theme.CategoryGovAdvisory
 import com.serenesec.ui.theme.CategoryMalware
 import com.serenesec.ui.theme.CategoryExploits
@@ -193,8 +194,8 @@ private fun ArticleCardContent(
                 Column(
                     modifier = Modifier.weight(1f)
                 ) {
-                    // Category chip
-                    CategoryChip(category = article.category)
+                    // Category & Structured Threat Badges (CVE, CISA, 0-Day)
+                    ThreatBadgeRow(article = article)
                     
                     Spacer(modifier = Modifier.height(8.dp))
                     
@@ -296,6 +297,96 @@ private fun ArticleCardContent(
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+fun ThreatBadgeRow(
+    article: Article,
+    modifier: Modifier = Modifier
+) {
+    val cveRegex = remember { Regex("""\bCVE-\d{4}-\d{4,}\b""", RegexOption.IGNORE_CASE) }
+    val cves = remember(article.title, article.summary) {
+        val inTitle = cveRegex.findAll(article.title).map { it.value.uppercase() }.toList()
+        val inSummary = article.summary?.let { cveRegex.findAll(it).map { m -> m.value.uppercase() }.toList() } ?: emptyList()
+        (inTitle + inSummary).distinct().take(2)
+    }
+
+    val isCisa = remember(article.title, article.sourceId) {
+        article.sourceId.contains("cisa", ignoreCase = true) ||
+        article.title.contains("CISA", ignoreCase = true)
+    }
+
+    val isZeroDay = remember(article.title) {
+        article.title.contains("zero-day", ignoreCase = true) ||
+        article.title.contains("0-day", ignoreCase = true) ||
+        article.title.contains("zeroday", ignoreCase = true)
+    }
+
+    FlowRow(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp)
+    ) {
+        CategoryChip(category = article.category)
+
+        if (isCisa) {
+            Box(
+                modifier = Modifier
+                    .background(
+                        color = Color(0xFF1565C0).copy(alpha = 0.18f),
+                        shape = RoundedCornerShape(4.dp)
+                    )
+                    .padding(horizontal = 6.dp, vertical = 2.dp)
+            ) {
+                Text(
+                    text = "CISA Alert",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = Color(0xFF1E88E5),
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 11.sp
+                )
+            }
+        }
+
+        if (isZeroDay) {
+            Box(
+                modifier = Modifier
+                    .background(
+                        color = Color(0xFFFF3D00).copy(alpha = 0.18f),
+                        shape = RoundedCornerShape(4.dp)
+                    )
+                    .padding(horizontal = 6.dp, vertical = 2.dp)
+            ) {
+                Text(
+                    text = "0-Day",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = Color(0xFFFF5722),
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 11.sp
+                )
+            }
+        }
+
+        cves.forEach { cveId ->
+            Box(
+                modifier = Modifier
+                    .background(
+                        color = Color(0xFFD32F2F).copy(alpha = 0.18f),
+                        shape = RoundedCornerShape(4.dp)
+                    )
+                    .padding(horizontal = 6.dp, vertical = 2.dp)
+            ) {
+                Text(
+                    text = cveId,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = Color(0xFFE53935),
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 11.sp
+                )
+            }
+        }
+    }
+}
+
 @Composable
 fun CategoryChip(
     category: Category,
@@ -307,6 +398,7 @@ fun CategoryChip(
         Category.CVE -> CategoryCVE to "CVE"
         Category.RESEARCH -> CategoryResearch to "Research"
         Category.THREAT_INTEL -> CategoryThreatIntel to "Threat Intel"
+        Category.BLOCKCHAIN -> CategoryBlockchain to "Blockchain"
         Category.GOV_ADVISORY -> CategoryGovAdvisory to "Gov Advisory"
         Category.MALWARE -> CategoryMalware to "Malware"
         Category.EXPLOITS -> CategoryExploits to "Exploits"
@@ -361,7 +453,6 @@ private fun formatTimeAgo(timestamp: Long): String {
         }
     }
 }
-
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

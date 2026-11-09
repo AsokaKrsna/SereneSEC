@@ -87,6 +87,7 @@ import com.serenesec.ui.theme.CategoryNews
 import com.serenesec.ui.theme.CategoryResearch
 import com.serenesec.ui.theme.CategoryTools
 import com.serenesec.ui.theme.CategoryThreatIntel
+import com.serenesec.ui.theme.CategoryBlockchain
 import com.serenesec.ui.theme.CategoryGovAdvisory
 import com.serenesec.ui.theme.CategoryMalware
 import com.serenesec.ui.theme.CategoryExploits
@@ -660,6 +661,7 @@ private fun CategoryFilterRow(
         Category.NEWS to "News",
         Category.RESEARCH to "Research",
         Category.THREAT_INTEL to "Threat Intel",
+        Category.BLOCKCHAIN to "Blockchain",
         Category.TOOLS to "Tools",
         Category.CVE to "CVEs",
         Category.GOV_ADVISORY to "Gov",
@@ -689,6 +691,7 @@ private fun CategoryFilterRow(
                 Category.CVE -> CategoryCVE
                 Category.RESEARCH -> CategoryResearch
                 Category.THREAT_INTEL -> CategoryThreatIntel
+                Category.BLOCKCHAIN -> CategoryBlockchain
                 Category.GOV_ADVISORY -> CategoryGovAdvisory
                 Category.MALWARE -> CategoryMalware
                 Category.EXPLOITS -> CategoryExploits

@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "sources": [
     {
       "id": "krebs-security",
@@ -75,11 +75,59 @@
     },
     {
       "id": "sans-isc",
-      "name": "SANS ISC",
-      "url": "https://isc.sans.edu/dailypodcast.xml",
+      "name": "SANS ISC Diaries",
+      "url": "https://isc.sans.edu/rssfeed.xml",
       "type": "RSS",
       "category": "THREAT_INTEL",
       "description": "Handler diaries and daily threat telemetry"
+    },
+    {
+      "id": "rekt-news",
+      "name": "Rekt News",
+      "url": "https://rekt.news/feed/",
+      "type": "RSS",
+      "category": "BLOCKCHAIN",
+      "description": "Leading DeFi exploit postmortems and smart contract hack leaderboard"
+    },
+    {
+      "id": "paradigm-research",
+      "name": "Paradigm Research",
+      "url": "https://www.paradigm.xyz/rss.xml",
+      "type": "RSS",
+      "category": "BLOCKCHAIN",
+      "description": "Frontier cryptography, EVM internals and protocol security"
+    },
+    {
+      "id": "openzeppelin-blog",
+      "name": "OpenZeppelin Security",
+      "url": "https://blog.openzeppelin.com/rss/",
+      "type": "RSS",
+      "category": "BLOCKCHAIN",
+      "description": "Smart contract audit reports and EVM security research"
+    },
+    {
+      "id": "immunefi-blog",
+      "name": "Immunefi Blog",
+      "url": "https://medium.com/feed/immunefi",
+      "type": "RSS",
+      "category": "BLOCKCHAIN",
+      "description": "Web3 bug bounties, whitehat disclosures and zero-day exploits"
+    },
+    {
+      "id": "chainalysis-blog",
+      "name": "Chainalysis Blog",
+      "url": "https://www.chainalysis.com/blog/feed/",
+      "type": "RSS",
+      "category": "BLOCKCHAIN",
+      "description": "On-chain threat intelligence, crypto crime and sanctions tracking"
+    },
+    {
+      "id": "slowmist-blog",
+      "name": "SlowMist Threat Intel",
+      "url": "https://slowmist.medium.com/feed",
+      "type": "RSS",
+      "category": "BLOCKCHAIN",
+      "description": "Web3 security alerts, wallet drainers and incident investigations"
     },
     {
       "id": "google-project-zero",
@@ -183,7 +231,7 @@
       "url": "https://blog.trailofbits.com/feed/",
       "type": "RSS",
       "category": "RESEARCH",
-      "description": "Advanced program analysis and cryptography"
+      "description": "Advanced program analysis, cryptography and blockchain audits"
     },
     {
       "id": "volexity",
@@ -234,6 +282,22 @@
       "description": "Fast vulnerability scanner releases"
     },
     {
+      "id": "github-slither",
+      "name": "Slither Releases",
+      "url": "https://github.com/crytic/slither/releases.atom",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Solidity static analysis framework releases"
+    },
+    {
+      "id": "github-foundry",
+      "name": "Foundry Releases",
+      "url": "https://github.com/foundry-rs/foundry/releases.atom",
+      "type": "GITHUB",
+      "category": "TOOLS",
+      "description": "Fast Ethereum smart contract testing, fuzzing and deployment toolkit"
+    },
+    {
       "id": "github-nmap",
       "name": "Nmap Releases",
       "url": "https://github.com/nmap/nmap/releases.atom",
@@ -255,11 +319,11 @@
       "url": "https://github.com/fortra/impacket/releases.atom",
       "type": "GITHUB",
       "category": "TOOLS",
-      "description": "Impacket releases"
+      "description": "Impacket network protocol releases"
     },
     {
       "id": "github-burpsuite",
-      "name": "Burp Suite Releases",
+      "name": "Burp Suite API Releases",
       "url": "https://github.com/PortSwigger/burp-extensions-montoya-api/releases.atom",
       "type": "GITHUB",
       "category": "TOOLS",
@@ -288,14 +352,6 @@
       "type": "RSS",
       "category": "PROGRAMS",
       "description": "Bug bounty platform updates"
-    },
-    {
-      "id": "portswigger-daily-swig",
-      "name": "PortSwigger Daily Swig",
-      "url": "https://portswigger.net/daily-swig/rss",
-      "type": "RSS",
-      "category": "WRITEUPS",
-      "description": "Web security news and research"
     },
     {
       "id": "darknet-diaries",

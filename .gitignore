@@ -1,0 +1,20 @@
+# Agent local harnesses & binaries
+.agent/
+.agents/
+.claude/
+.gemini/
+.kiro/
+.opencode/
+.qoder/
+.playwright-mcp/
+
+# Web node_modules and build output
+web/node_modules/
+web/dist/
+
+# Android build outputs & local config
+.gradle/
+build/
+local.properties
+*.iml
+.idea/

@@ -44,6 +44,7 @@ val CategoryTools = Color(0xFFA371F7)         // Purple
 val CategoryCVE = Color(0xFFF85149)           // Red
 val CategoryResearch = Color(0xFF3FB950)      // Green
 val CategoryThreatIntel = Color(0xFFFF7B72)   // Coral Red
+val CategoryBlockchain = Color(0xFF8C52FF)    // Vibrant Web3 Purple
 val CategoryGovAdvisory = Color(0xFF79C0FF)   // Light Blue
 val CategoryMalware = Color(0xFFDB6D28)       // Orange
 val CategoryExploits = Color(0xFFE3B341)      // Yellow
